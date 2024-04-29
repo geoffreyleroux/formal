@@ -1,4 +1,5 @@
 {
+  "package-name": "git+https://geoffreyleroux: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@github.com/geofffreyleroux/formal.git",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
