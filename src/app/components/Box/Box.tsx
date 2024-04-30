@@ -1,5 +1,4 @@
-import { cn } from "@/lib/utils";
-
+import styles from "./styles.module.css";
 import * as React from "react";
 
 export interface Props {
@@ -11,10 +10,8 @@ const Box: React.FC<React.PropsWithChildren<Props>> = ({
   children,
   ...rest
 }) => {
-  const classes = cn("box", displayClasses);
-
   return (
-    <div className={classes} {...rest}>
+    <div className={styles.container} {...rest}>
       {children}
     </div>
   );
