@@ -1,13 +1,13 @@
 import "@/styles/globals.css";
 import Box from "./components/Box/Box";
-import Header from "./components/Header/Header";
+import SearchDialog from "./components/SearchDialog/SearchDialog";
 import Section from "./components/Section/Section";
 import { cards } from "@/lib/constants";
 
 export default function Home() {
   return (
     <>
-      <Header></Header>
+      <SearchDialog></SearchDialog>
       <Section title="Recent">
         <Box {...cards[5]}></Box>
       </Section>
