@@ -9,8 +9,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html className="size-full" lang="en">
+      <body className="size-full bg-gradient-to-t from-blue-200 to-gray-100">{children}</body>
     </html>
   )
 }

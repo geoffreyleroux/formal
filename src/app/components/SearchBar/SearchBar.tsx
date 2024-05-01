@@ -2,8 +2,8 @@
 import * as React from "react";
 
 import useDebounce from "@/lib/hooks/use-debounce";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/components/design-system/input";
+import { Button } from "@/components/design-system/button";
 
 export interface Props {
   search?: never;
