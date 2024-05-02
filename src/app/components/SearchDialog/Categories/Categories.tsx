@@ -70,12 +70,12 @@ const Categories: React.FC<CategoriesProps> = ({
   });
 
   return (
-    <ScrollArea className="px-3 flex flex-row flex-grow">
+    <ScrollArea className="px-2 flex flex-row flex-grow">
       <div className="flex flex-col">
         {filteredCategories?.map((category, index) => {
           return (
             <div key={category.title + index}>
-              <h2 className={cn("text-gray-400", index > 0 && "mt-5")}>
+              <h2 className={cn("text-gray-400 px-1", index > 0 && "mt-5")}>
                 {category.title}
               </h2>
 

@@ -35,17 +35,17 @@ const Action: React.FC<CategoriesProps> = ({
   return (
     <div
       className={cn(
-        "flex flex-row justify-between hover:bg-white active:bg-white transition ease-in-out",
+        "flex flex-row justify-between hover:bg-white active:bg-white",
         selectedAction?.title === action.title && "bg-white"
       )}
       role="button"
       onClick={onEnterPressed}
     >
-      <div className="flex flex-row items-center my-2">
+      <div className="flex flex-row items-center my-2 px-1">
         <Icon
           className={`bg-${
-            showCommands ? "white" : category.color
-          } p-2 mr-2 rounded-sm`}
+            showCommands ? "white ring-1 ring-gray-300" : category.color
+          } p-2 mr-2 rounded-sm `}
           size={32}
           iconName={action.icon || "Folder"}
           color={showCommands ? "purple" : "white"}
