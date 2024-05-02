@@ -32,6 +32,7 @@ import {
   Key,
   Sigma,
   Workflow,
+  BadgeInfo,
 } from "lucide-react";
 import * as React from "react";
 
@@ -95,6 +96,8 @@ const getIconFromName = (iconName: string, rest: LucideProps) => {
       return <View {...rest} />;
     case "LayoutGrid":
       return <LayoutGrid {...rest} />;
+    case "BadgeInfo":
+      return <BadgeInfo {...rest} />;
     case "Command":
       return <Command {...rest} />;
     default:
