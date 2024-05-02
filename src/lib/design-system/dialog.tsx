@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -40,9 +39,9 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        `origin-top fixed left-[50%] top-[50%] z-50 grid w-full 
-        max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border 
-        bg-background p-6 shadow-lg duration-1000
+        `outline-none	 origin-top fixed left-[50%] top-[50%] z-50 flex flex-col w-full 
+        max-w-lg translate-x-[-50%] translate-y-[-50%] gap-0 border 
+        bg-gray-100 p-6 shadow-lg duration-1000
         data-[state=open]:animate-in 
         data-[state=open]:slide-in-from-top-[100%]
         data-[state=open]:slide-in-from-left-1/2
@@ -70,10 +69,7 @@ const DialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      "flex flex-col text-center sm:text-left",
-      className
-    )}
+    className={cn("flex flex-col text-center sm:text-left", className)}
     {...props}
   />
 );
@@ -85,7 +81,7 @@ const DialogFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+      "min-h-[50px] w-full flex flex-row px-3 justify-between items-center",
       className
     )}
     {...props}

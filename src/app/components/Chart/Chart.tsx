@@ -7,8 +7,6 @@ import {
   Line,
   BarChart,
   Pie,
-  XAxis,
-  YAxis,
   Tooltip,
   Legend,
   PieChart,
@@ -23,7 +21,6 @@ import {
 } from "./types";
 
 const BChart: React.FC<Omit<BarChartProps, "type">> = ({ data }) => {
-  console.log(data);
   return (
     <ResponsiveContainer height={100} width={"100%"}>
       <BarChart data={data}>

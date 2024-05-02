@@ -1,6 +1,5 @@
 import { BoxProps } from "@/app/components/Box/Box";
-import { Category } from "@/app/components/SearchDialog/Categories/Categories";
-import { TabButton } from "@/app/components/SearchDialog/types";
+import { Category, TabButton, Tabs } from "@/app/components/SearchDialog/types";
 
 export const cards: BoxProps[] = [
   {
@@ -289,161 +288,166 @@ export const cards: BoxProps[] = [
   },
 ];
 
-export const responses: Category[] = [
+export const categories: Category[] = [
   {
-    title: "Data",
-    color: "bg-red-500",
-    data: [
+    title: Tabs.Data,
+    color: "blue-500",
+    applications: [
       {
         title: "Catalog",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Folder",
+        shortcut: ["Alt", "C"],
       },
       {
         title: "Observability",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "ScanEye",
+        shortcut: ["Alt", "O"],
       },
       {
         title: "Lineage",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Cable",
+        shortcut: ["Alt", "L"],
       },
       {
         title: "ETL",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Repeat",
+        shortcut: ["Alt", "E"],
       },
     ],
   },
   {
-    title: "Security",
-    color: "bg-purple-500",
-
-    data: [
+    title: Tabs.Security,
+    color: "purple-500",
+    applications: [
       {
         title: "Access",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Users",
+        shortcut: ["Alt", "A"],
       },
       {
         title: "Logs",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "FileClock",
+        shortcut: ["Alt", "G"],
       },
       {
         title: "Discovery",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Gauge",
+        shortcut: ["Alt", "D"],
       },
       {
         title: "Policies",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "FileSpreadsheet",
+        shortcut: ["Alt", "P"],
       },
       {
         title: "Compliance",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "CircleGauge",
+        shortcut: ["Alt", "Q"],
       },
     ],
   },
   {
-    title: "Store",
-    color: "bg-green-500",
-    data: [
+    title: Tabs.Store,
+    color: "green-500",
+    applications: [
       {
         title: "AWS",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "aws",
+        shortcut: ["Alt", "Shift", "A"],
       },
       {
         title: "Datadog",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Dog",
+        shortcut: ["Alt", "Shift", "D"],
       },
       {
         title: "Splunk",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "splunk",
+        shortcut: ["Alt", "Shift", "S"],
       },
       {
         title: "S3",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "s3",
+        shortcut: ["Alt", "Shift", 3],
       },
       {
         title: "Github",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "github",
+        shortcut: ["Alt", "Shift", "G"],
       },
       {
         title: "Datahub",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "datahub",
+        shortcut: ["Alt", "Shift", "H"],
+      },
+      {
+        title: "Manage Store apps",
+        description: "Description of application",
+        icon: "CirclePlus",
+        shortcut: ["Alt", "Shift", "M"],
       },
     ],
   },
   {
-    title: "Tools",
-    color: "bg-red-500",
-    data: [
+    title: Tabs.Tools,
+    color: "red-500",
+    applications: [
       {
         title: "Api Keys",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Key",
+        shortcut: ["Alt", "K"],
       },
       {
         title: "Sigma",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Sigma",
+        shortcut: ["Alt", "S"],
       },
       {
         title: "Workflow",
         description: "Description of application",
-        icon: "",
-        shortcut: "",
+        icon: "Workflow",
+        shortcut: ["Alt", "W"],
       },
     ],
   },
   {
-    title: "Settings",
-    color: "bg-yellow-500",
-    data: [
+    title: Tabs.Settings,
+    color: "yellow-500",
+    applications: [
       {
         title: "Profil",
         description: "Description of application",
         icon: "",
-        shortcut: "",
+        shortcut: ["Alt", "Shift", "P"],
       },
       {
         title: "Company",
         description: "Description of application",
         icon: "",
-        shortcut: "",
+        shortcut: ["Alt", "Shift", "C"],
       },
       {
         title: "Users",
         description: "Description of application",
         icon: "",
-        shortcut: "",
+        shortcut: ["Alt", "Shift", "U"],
       },
     ],
   },
@@ -463,38 +467,38 @@ export const queryExamples = [
 
 export const tabButtons: TabButton[] = [
   {
-    title: "All",
+    title: Tabs.All,
     backgroundColor: "bg-gray-500",
-    className: "focus:bg-gray-500 hover:bg-gray-500 active:bg-gray-500 p-3 ",
+    className: "focus:bg-gray-500 active:bg-gray-500 p-3 ",
   },
   {
-    title: "Data",
+    title: Tabs.Data,
     icon: "Database",
     backgroundColor: "bg-blue-500",
-    className: "focus:bg-blue-500 hover:bg-blue-500 active:bg-blue-500",
+    className: "focus:bg-blue-500 active:bg-blue-500",
   },
   {
-    title: "Security",
+    title: Tabs.Security,
     icon: "Lock",
     backgroundColor: "bg-purple-500",
-    className: "focus:bg-purple-500 hover:bg-purple-500 active:bg-purple-500",
+    className: "focus:bg-purple-500 active:bg-purple-500",
   },
   {
-    title: "Store",
+    title: Tabs.Store,
     icon: "Puzzle",
     backgroundColor: "bg-green-500",
-    className: "focus:bg-green-500 hover:bg-green-500 active:bg-green-500",
+    className: "focus:bg-green-500 active:bg-green-500",
   },
   {
-    title: "Tools",
+    title: Tabs.Tools,
     icon: "PencilRuler",
     backgroundColor: "bg-red-500",
-    className: "focus:bg-red-500 hover:bg-red-500 active:bg-red-500",
+    className: "focus:bg-red-500 active:bg-red-500",
   },
   {
-    title: "Settings",
+    title: Tabs.Settings,
     icon: "Settings",
     backgroundColor: "bg-yellow-500",
-    className: "focus:bg-yellow-500 hover:bg-yellow-500 active:bg-yellow-500",
+    className: "focus:bg-yellow-500 active:bg-yellow-500",
   },
 ];

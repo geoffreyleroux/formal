@@ -8,7 +8,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { ChartProps } from "../Chart/types";
 import Chart from "../Chart/Chart";
-import { BadgeInfo } from "lucide-react";
+import Icon from "../Icon/Icon";
 
 export interface BoxProps {
   title: string;
@@ -36,7 +36,7 @@ const Box: React.FC<BoxProps> = ({ title, lastUpdated, logsCount, chart }) => {
             </CardDescription>
           </div>
           <div className="flex flex-row text-2xs text-gray-300 items-center">
-            <BadgeInfo size={16}/>
+            <Icon iconName="BadgeInfo" size={16}></Icon>
             <p className="pl-1">{logsCount} News logs since update</p>
           </div>
         </div>
