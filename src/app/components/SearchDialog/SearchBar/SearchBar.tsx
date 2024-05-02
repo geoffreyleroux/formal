@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import Shortcut from "../../Shortcut/Shortcut";
 import { Input } from "@/lib/design-system/input";

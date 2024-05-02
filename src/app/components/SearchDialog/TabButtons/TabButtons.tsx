@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/lib/design-system/button";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +30,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({ selected, onSelect }) => {
     },
   });
   const colors =
-    "bg-gray-500/50 bg-purple-500/50 bg-green-500/50 bg-red-500/50 bg-yellow-500/50 bg-gray-500 bg-purple-500 bg-green-500 bg-red-500 bg-yellow-500";
+    "bg-blue-500 bg-gray-500 bg-purple-500 bg-green-500 bg-red-500 bg-yellow-500";
 
   return (
     <div className="flex flex-row w-full">

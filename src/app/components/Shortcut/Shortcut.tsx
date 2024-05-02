@@ -1,5 +1,3 @@
-"use client";
-import { Badge } from "@/lib/design-system/badge";
 import { useKeyboardShortcut } from "@/lib/hooks/use-keyboard-shortcut";
 import { cn } from "@/lib/utils";
 import * as React from "react";

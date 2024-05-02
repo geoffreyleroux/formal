@@ -1,4 +1,3 @@
-"use client";
 import { Badge } from "@/lib/design-system/badge";
 import { cn } from "@/lib/utils";
 import {

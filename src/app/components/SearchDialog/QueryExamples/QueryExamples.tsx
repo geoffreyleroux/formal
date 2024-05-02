@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/lib/design-system/button";
 import * as React from "react";
 import { queryExamples } from "@/lib/constants";

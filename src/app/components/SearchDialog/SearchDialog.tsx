@@ -97,7 +97,7 @@ const SearchDialog: React.FC = ({}) => {
               <Shortcut label="Move">
                 <Badge
                   variant="secondary"
-                  className="bg-white rounded-xl w-[30x] px-3 py-1 mr-2"
+                  className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2"
                 >
                   <Icon iconName="ArrowDownUp" size={16} color="#9ca3af"></Icon>
                 </Badge>
@@ -108,7 +108,7 @@ const SearchDialog: React.FC = ({}) => {
                 <Shortcut label="Open" className="p-2">
                   <Badge
                     variant="secondary"
-                    className="bg-white rounded-xl w-[30x] px-3 py-1 mr-2 border-none"
+                    className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2 border-none"
                   >
                     <Icon
                       iconName="CornerDownLeft"
@@ -120,7 +120,7 @@ const SearchDialog: React.FC = ({}) => {
                 <Shortcut label="Close">
                   <Badge
                     variant="secondary"
-                    className="bg-white rounded-xl w-[30x] px-3 py-1 mr-2"
+                    className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2"
                   >
                     <span className="text-gray-400">esc</span>
                   </Badge>

@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import Shortcut from "../../Shortcut/Shortcut";
@@ -30,13 +29,13 @@ const Action: React.FC<CategoriesProps> = ({
   const key = hasShortcut ? action.shortcut[action.shortcut.length - 1] : "";
   const shift = hasShortcut && action.shortcut.includes("Shift");
   const alt = hasShortcut && action.shortcut.includes("Alt");
-  // load colors
-  let colours = "bg-blue-100 text-blue-800 bg-emerald-100 text-emerald-800";
+  // load colors into tailwind
+  let colors = "bg-blue-100 text-blue-800 bg-emerald-100 text-emerald-800";
 
   return (
     <div
       className={cn(
-        "flex flex-row justify-between hover:bg-white active:bg-white",
+        "flex flex-row justify-between hover:bg-white active:bg-white transition ease-in-out",
         selectedAction?.title === action.title && "bg-white"
       )}
       role="button"
