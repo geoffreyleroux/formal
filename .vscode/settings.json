@@ -2135,7 +2135,7 @@
 	"explorer.compactFolders": true,
 
 	// Controls whether the Explorer should ask for confirmation when deleting a file via the trash.
-	"explorer.confirmDelete": true,
+	"explorer.confirmDelete": false,
 
 	// Controls whether the Explorer should ask for confirmation to move files and folders via drag and drop.
 	"explorer.confirmDragAndDrop": true,
