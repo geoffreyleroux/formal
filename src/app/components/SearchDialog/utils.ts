@@ -1,4 +1,4 @@
-import { Category, Application, Tabs } from "./types";
+import { Category, Tabs, Action, Command, Application } from "./types";
 
 export const getNextTab = (current: Tabs): Tabs => {
   const values = Object.values(Tabs);
@@ -8,48 +8,54 @@ export const getNextTab = (current: Tabs): Tabs => {
 
 export const getPrevTab = (current: Tabs): Tabs => {
   const values = Object.values(Tabs);
-  const map = new Map(values.map((k, i) => [k, values[i - 1] || Tabs.Settings]));
+  const map = new Map(
+    values.map((k, i) => [k, values[i - 1] || Tabs.Settings])
+  );
   return map.get(current) || Tabs.Settings;
 };
 
-export const getNextApp = (
-  currentData: Application,
+export const getNextAction = (
+  currentData: Action,
+  type: "applications" | "commands",
   categories: Category[]
-): Application => {
+): Action => {
   const currentCategory =
-    categories.find((c) => c.applications.find((d) => d.title === currentData.title)) ||
-    categories[0];
+    categories.find((c) =>
+      c[type]?.find((d) => d.title === currentData.title)
+    ) || categories[0];
 
-  const currentDataIndex = currentCategory.applications.findIndex(
+  const currentDataIndex = currentCategory[type].findIndex(
     (c) => c.title === currentData.title
   );
   const nextDataIsInCategory =
-    currentDataIndex !== currentCategory.applications.length - 1;
+    currentDataIndex !== currentCategory[type].length - 1;
   if (nextDataIsInCategory) {
-    return currentCategory.applications[currentDataIndex + 1];
+    return currentCategory[type][currentDataIndex + 1];
   }
 
   const currentCategoryIndex = categories.findIndex(
     (c) => c.title === currentCategory.title
   );
   const nextCategory = categories[currentCategoryIndex + 1] || categories[0];
-  return nextCategory.applications[0];
+  return nextCategory[type][0];
 };
 
-export const getPreviousApp = (
-  currentData: Application,
+export const getPreviousAction = (
+  currentData: Action,
+  type: "applications" | "commands",
   categories: Category[]
-): Application => {
+): Action => {
   const currentCategory =
-    categories.find((c) => c.applications.find((d) => d.title === currentData.title)) ||
-    categories[0];
+    categories.find((c) =>
+      c[type].find((d) => d.title === currentData.title)
+    ) || categories[0];
 
-  const currentDataIndex = currentCategory.applications.findIndex(
+  const currentDataIndex = currentCategory[type].findIndex(
     (c) => c.title === currentData.title
   );
   const prevDataIsInCategory = currentDataIndex !== 0;
   if (prevDataIsInCategory) {
-    return currentCategory.applications[currentDataIndex - 1];
+    return currentCategory[type][currentDataIndex - 1];
   }
 
   const currentCategoryIndex = categories.findIndex(
@@ -58,5 +64,5 @@ export const getPreviousApp = (
   const prevCategory =
     categories[currentCategoryIndex - 1] || categories[categories.length - 1];
 
-  return prevCategory.applications[prevCategory.applications.length - 1];
+  return prevCategory[type][prevCategory[type].length - 1];
 };

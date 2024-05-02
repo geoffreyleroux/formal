@@ -318,6 +318,41 @@ export const categories: Category[] = [
         shortcut: ["Alt", "E"],
       },
     ],
+    commands: [
+      {
+        title: "catalog search",
+        description: "Search the data catalog for datasets using a keyword",
+        icon: "Folder",
+        badges: [
+          {
+            color: "blue",
+            label: "Keyword",
+          },
+        ],
+      },
+      {
+        title: "observability status",
+        description: "Check the observability status of a specific dataset",
+        icon: "View",
+        badges: [
+          {
+            color: "blue",
+            label: "Dataset",
+          },
+        ],
+      },
+      {
+        title: "etl Run",
+        description: "Run an etl job by specifying its name",
+        icon: "Repeat",
+        badges: [
+          {
+            color: "blue",
+            label: "Job name",
+          },
+        ],
+      },
+    ],
   },
   {
     title: Tabs.Security,
@@ -354,10 +389,58 @@ export const categories: Category[] = [
         shortcut: ["Alt", "Q"],
       },
     ],
+    commands: [
+      {
+        title: "access grant",
+        description: "Grant access to a specific user for a resource",
+        icon: "Users",
+        badges: [
+          {
+            color: "blue",
+            label: "User",
+          },
+          {
+            color: "emerald",
+            label: "Resource",
+          },
+        ],
+      },
+      {
+        title: "logs view",
+        description: "View security logs for a specific date and log type",
+        icon: "FileClock",
+        badges: [
+          {
+            color: "blue",
+            label: "Data",
+          },
+          {
+            color: "emerald",
+            label: "Type",
+          },
+        ],
+      },
+      {
+        title: "policies create",
+        description: "Create a security policy with specific rules",
+        icon: "FileSpreadsheet",
+        badges: [
+          {
+            color: "blue",
+            label: "PolicyName",
+          },
+          {
+            color: "emerald",
+            label: "Rules",
+          },
+        ],
+      },
+    ],
   },
   {
     title: Tabs.Store,
     color: "green-500",
+    commands: [],
     applications: [
       {
         title: "AWS",
@@ -426,10 +509,35 @@ export const categories: Category[] = [
         shortcut: ["Alt", "W"],
       },
     ],
+    commands: [
+      {
+        title: "apikeys create",
+        description: "Create an apikey with a giver name",
+        icon: "Key",
+        badges: [
+          {
+            color: "blue",
+            label: "Name",
+          },
+        ],
+      },
+      {
+        title: "sigma analyze",
+        description: "Analyze data using sigma notation",
+        icon: "Sigma",
+        badges: [
+          {
+            color: "blue",
+            label: "Query",
+          },
+        ],
+      },
+    ],
   },
   {
     title: Tabs.Settings,
     color: "yellow-500",
+    commands: [],
     applications: [
       {
         title: "Profil",
@@ -468,37 +576,31 @@ export const queryExamples = [
 export const tabButtons: TabButton[] = [
   {
     title: Tabs.All,
-    backgroundColor: "bg-gray-500",
-    className: "focus:bg-gray-500 active:bg-gray-500 p-3 ",
+    color: "gray",
   },
   {
     title: Tabs.Data,
     icon: "Database",
-    backgroundColor: "bg-blue-500",
-    className: "focus:bg-blue-500 active:bg-blue-500",
+    color: "blue",
   },
   {
     title: Tabs.Security,
     icon: "Lock",
-    backgroundColor: "bg-purple-500",
-    className: "focus:bg-purple-500 active:bg-purple-500",
+    color: "purple",
   },
   {
     title: Tabs.Store,
     icon: "Puzzle",
-    backgroundColor: "bg-green-500",
-    className: "focus:bg-green-500 active:bg-green-500",
+    color: "green",
   },
   {
     title: Tabs.Tools,
     icon: "PencilRuler",
-    backgroundColor: "bg-red-500",
-    className: "focus:bg-red-500 active:bg-red-500",
+    color: "red",
   },
   {
     title: Tabs.Settings,
     icon: "Settings",
-    backgroundColor: "bg-yellow-500",
-    className: "focus:bg-yellow-500 active:bg-yellow-500",
+    color: "yellow",
   },
 ];

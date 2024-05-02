@@ -1,9 +1,10 @@
 "use client";
 import { Badge } from "@/lib/design-system/badge";
-import { Button } from "@/lib/design-system/button";
 import { cn } from "@/lib/utils";
 import {
   Database,
+  LayoutGrid,
+  Command,
   Lock,
   Puzzle,
   PencilRuler,
@@ -19,6 +20,7 @@ import {
   ArrowUp,
   Search,
   ScanEye,
+  View,
   Cable,
   Repeat,
   Users,
@@ -90,6 +92,12 @@ const getIconFromName = (iconName: string, rest: LucideProps) => {
       return <Sigma {...rest} />;
     case "Workflow":
       return <Workflow {...rest} />;
+    case "View":
+      return <View {...rest} />;
+    case "LayoutGrid":
+      return <LayoutGrid {...rest} />;
+    case "Command":
+      return <Command {...rest} />;
     default:
       return (
         <Badge

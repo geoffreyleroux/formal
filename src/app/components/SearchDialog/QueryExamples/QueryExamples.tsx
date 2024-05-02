@@ -12,12 +12,11 @@ const QueryExamples: React.FC = () => {
         <Button
           tabIndex={-1}
           key={index}
-          className="mx-1 h-[30px] bg-gray-200 pr-4 focus:bg-gray-400 hover:bg-gray-400 focus:text-white hover:text-white"
+          className="outline-none ring-0 mx-1 h-[30px] bg-gray-200 pr-4 focus:bg-gray-400 hover:bg-gray-400 focus:text-white hover:text-white"
           size="secondary"
           variant="secondary"
         >
           <Icon iconName="Sparkle" className="px-1"></Icon>
-
           <p>{queryExample.description}</p>
         </Button>
       ))}
