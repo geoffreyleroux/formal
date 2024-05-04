@@ -1,16 +1,8 @@
 import * as React from "react";
-import {
-  Category,
-  Application as ApplicationType,
-  Command as CommandType,
-  Action as ActionType,
-} from "../types";
+import { Category, Action as ActionType } from "../types";
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/lib/design-system/scroll-area";
-import { useKeyboardShortcut } from "@/lib/hooks/use-keyboard-shortcut";
-
 import Action from "./Action";
-import { getNextAction, getPreviousAction } from "../utils";
 
 export interface CategoriesProps {
   categories: Category[];
@@ -31,43 +23,6 @@ const Categories: React.FC<CategoriesProps> = ({
     if (showCommands) return categories.filter((c) => c.commands.length);
     return categories;
   }, [showCommands, categories]);
-
-  useKeyboardShortcut({
-    key: "Enter",
-    onKeyDown: () => {
-      if (selectedAction) onEnterPressed();
-    },
-  });
-
-  useKeyboardShortcut({
-    key: "ArrowDown",
-    onKeyDown: () => {
-      selectedAction
-        ? onSelect(
-            getNextAction(
-              selectedAction,
-              showCommands ? "commands" : "applications",
-              filteredCategories
-            )
-          )
-        : onSelect(filteredCategories[0].applications[0]);
-    },
-  });
-
-  useKeyboardShortcut({
-    key: "ArrowUp",
-    onKeyDown: () => {
-      selectedAction
-        ? onSelect(
-            getPreviousAction(
-              selectedAction,
-              showCommands ? "commands" : "applications",
-              filteredCategories
-            )
-          )
-        : onSelect(filteredCategories[0].applications[0]);
-    },
-  });
 
   return (
     <ScrollArea className="px-2 flex flex-row flex-grow">

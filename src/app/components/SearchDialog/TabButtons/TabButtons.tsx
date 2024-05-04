@@ -16,7 +16,7 @@ interface TabButtonsProps {
 
 const TabButtons: React.FC<TabButtonsProps> = ({ selected, onSelect }) => {
   useKeyboardShortcut({
-    key: "Tab",
+    keyValue: "Tab",
     onKeyDown: () => {
       onSelect(getNextTab(selected));
     },
@@ -24,7 +24,7 @@ const TabButtons: React.FC<TabButtonsProps> = ({ selected, onSelect }) => {
 
   useKeyboardShortcut({
     shift: true,
-    key: "Tab",
+    keyValue: "Tab",
     onKeyDown: () => {
       onSelect(getPrevTab(selected));
     },

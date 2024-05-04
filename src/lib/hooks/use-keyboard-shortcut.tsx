@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 
-interface UseKeyboardShortcutArgs {
-  key: string;
+export interface UseKeyboardShortcutArgs {
+  keyValue: string;
   shift?: boolean;
   alt?: boolean;
   ctrl?: boolean;
   meta?: boolean;
   preventDefault?: boolean;
-  onKeyDown: () => void;
+  onKeyDown?: () => void;
 }
 
 export function useKeyboardShortcut({
-  key,
+  keyValue,
   shift = false,
   alt = false,
   ctrl = false,
@@ -20,7 +20,7 @@ export function useKeyboardShortcut({
   onKeyDown,
 }: UseKeyboardShortcutArgs) {
   function keyDownHandler(e: globalThis.KeyboardEvent) {
-    if (e.code !== key) return;
+    if (!onKeyDown || e.code !== keyValue) return;
     if (e.shiftKey) {
       if (!shift) return;
       if (e.altKey) {

@@ -25,13 +25,16 @@ const Action: React.FC<CategoriesProps> = ({
   selectedAction,
   onEnterPressed,
 }) => {
-  const hasShortcut = "shortcut" in action;
-  const key = hasShortcut ? action.shortcut[action.shortcut.length - 1] : "";
-  const shift = hasShortcut && action.shortcut.includes("Shift");
-  const alt = hasShortcut && action.shortcut.includes("Alt");
   // load colors into tailwind
   let colors = "bg-blue-100 text-blue-800 bg-emerald-100 text-emerald-800";
 
+  const hasShortcut = "shortcut" in action;
+  const shift = hasShortcut && action.shortcut.includes("Shift");
+  const alt = hasShortcut && action.shortcut.includes("Alt");
+  const label = hasShortcut ? action.shortcut[action.shortcut.length - 1] : "";
+  const keyValue = isNaN(Number(label))
+    ? `Key${String(label).toUpperCase()}`
+    : `Digit${label}`;
   return (
     <div
       className={cn(
@@ -73,7 +76,8 @@ const Action: React.FC<CategoriesProps> = ({
           <Shortcut
             shift={shift}
             alt={alt}
-            label={key}
+            label={String(label)}
+            keyValue={keyValue}
             onKeyDown={onEnterPressed}
             className="bg-white h-[30px] rounded-xl p-2 border-b-2 border-r-2"
           ></Shortcut>

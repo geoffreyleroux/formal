@@ -105,7 +105,7 @@ const getIconFromName = (iconName: string, rest: LucideProps) => {
         <Badge
           className={cn(
             rest.className,
-            "text-2xs p-2 h-[32px] w-[32px] text-white text-center overflow-hidden"
+            "text-3xs p-2 h-[32px] w-[32px] text-white text-center overflow-hidden"
           )}
         >
           {iconName}

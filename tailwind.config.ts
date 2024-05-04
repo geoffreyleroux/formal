@@ -20,7 +20,9 @@ const config = {
     },
     extend: {
       fontSize: {
-        "2xs": ".5em",
+        "3xs": ".5em",
+        "2xs": ".7em",
+        ...defaultTheme.fontSize,
       },
       screens: {
         xs: "300px",

@@ -35,7 +35,7 @@ const Box: React.FC<BoxProps> = ({ title, lastUpdated, logsCount, chart }) => {
               {lastUpdated}
             </CardDescription>
           </div>
-          <div className="flex flex-row text-2xs text-gray-300 items-center">
+          <div className="flex flex-row text-3xs text-gray-300 items-center">
             <Icon iconName="BadgeInfo" size={16}></Icon>
             <p className="pl-1">{logsCount} News logs since update</p>
           </div>

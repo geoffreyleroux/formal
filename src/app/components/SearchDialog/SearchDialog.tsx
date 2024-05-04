@@ -17,6 +17,8 @@ import QueryExamples from "./QueryExamples/QueryExamples";
 import Categories from "./Categories/Categories";
 import SearchBar from "./SearchBar/SearchBar";
 import Icon from "../Icon/Icon";
+import { useKeyboardShortcut } from "@/lib/hooks/use-keyboard-shortcut";
+import { getNextAction, getPreviousAction } from "./utils";
 
 const SearchDialog: React.FC = ({}) => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -45,6 +47,20 @@ const SearchDialog: React.FC = ({}) => {
     }
   }, [inputValue]);
 
+  useKeyboardShortcut({
+    keyValue: "ArrowDown",
+    onKeyDown: () => {
+      setSelectedAction(
+        selectedAction
+          ? getNextAction(
+              selectedAction,
+              showCommands ? "commands" : "applications",
+              filteredCategories
+            )
+          : filteredCategories[0].applications[0]
+      );
+    },
+  });
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -69,7 +85,7 @@ const SearchDialog: React.FC = ({}) => {
                 <div className="flex flex-row px-3 py-1 mt-1 max-w-full relative overflow-hidden">
                   <QueryExamples />
                 </div>
-                <div className="flex flex-row px-3 py-1 max-w-full relative overflow-hidden sm:overflow-auto">
+                <div className="flex flex-row px-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto">
                   <TabButtons
                     selected={selectedTab}
                     onSelect={(value) => {
@@ -94,7 +110,21 @@ const SearchDialog: React.FC = ({}) => {
 
           <DialogFooter>
             <div className="flex flex-col">
-              <Shortcut label="Move">
+              <Shortcut
+                label="Move"
+                keyValue="ArrowUp"
+                onKeyDown={() => {
+                  setSelectedAction(
+                    selectedAction
+                      ? getPreviousAction(
+                          selectedAction,
+                          showCommands ? "commands" : "applications",
+                          filteredCategories
+                        )
+                      : filteredCategories[0].applications[0]
+                  );
+                }}
+              >
                 <Badge
                   variant="secondary"
                   className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2"
@@ -105,7 +135,14 @@ const SearchDialog: React.FC = ({}) => {
             </div>
             <div className="flex flex-col">
               <div className="flex flex-row">
-                <Shortcut label="Open" className="p-2">
+                <Shortcut
+                  label="Open"
+                  className="p-2"
+                  keyValue="Enter"
+                  onKeyDown={() => {
+                    if (selectedAction) setOpen(false);
+                  }}
+                >
                   <Badge
                     variant="secondary"
                     className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2 border-none"
