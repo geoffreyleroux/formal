@@ -19,6 +19,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import Icon from "../Icon/Icon";
 import { useKeyboardShortcut } from "@/lib/hooks/use-keyboard-shortcut";
 import { getNextAction, getPreviousAction } from "./utils";
+import { Button } from "@/lib/design-system/button";
 
 const SearchDialog: React.FC = ({}) => {
   const [open, setOpen] = React.useState<boolean>(false);
@@ -82,7 +83,7 @@ const SearchDialog: React.FC = ({}) => {
                 <div className="flex flex-row px-3 py-1 mt-1 max-w-full relative overflow-hidden">
                   <QueryExamples />
                 </div>
-                <div className="flex flex-row px-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto">
+                <div className="flex flex-row px-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto pb-2 sm:pb0">
                   <TabButtons
                     selected={selectedTab}
                     onSelect={(value) => {
@@ -149,7 +150,7 @@ const SearchDialog: React.FC = ({}) => {
                     ></Icon>
                   </Badge>
                 </Shortcut>
-                <Shortcut label="Close" className="flex sm:flex">
+                <Shortcut label="Close">
                   <Badge
                     variant="secondary"
                     className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2"
@@ -157,6 +158,14 @@ const SearchDialog: React.FC = ({}) => {
                     <span className="text-gray-400">esc</span>
                   </Badge>
                 </Shortcut>
+                <Button
+                  onClick={() => setOpen(false)}
+                  variant="secondary"
+                  size="sm"
+                  className="flex sm:hidden ring-none bg-white "
+                >
+                  Close
+                </Button>
               </div>
             </div>
           </DialogFooter>

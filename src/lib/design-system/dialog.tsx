@@ -2,6 +2,7 @@ import * as React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 
 const Dialog = DialogPrimitive.Root;
 
@@ -37,7 +38,7 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        `outline-nonesm:rounded-lg origin-top fixed left-[50%] top-[50%] z-50 flex flex-col 
+        `outline-none sm:rounded-lg origin-top fixed left-[50%] top-[50%] z-50 flex flex-col 
         max-w-lg translate-x-[-50%] translate-y-[-50%] gap-0 border 
         bg-gray-100 p-6 shadow-lg
         data-[state=open]:animate-in 

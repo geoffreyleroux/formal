@@ -1,17 +1,10 @@
-"use client";
 import "@/styles/globals.css";
 import Box from "./components/Box/Box";
 import SearchDialog from "./components/SearchDialog/SearchDialog";
 import Section from "./components/Section/Section";
 import { cards } from "@/lib/constants";
-import { useEffect } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    window.addEventListener("popstate", () => {
-      window.alert("in");
-    });
-  }, []);
   return (
     <>
       <SearchDialog></SearchDialog>
