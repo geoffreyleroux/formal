@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    document.addEventListener("popstate", () => {
+    window.addEventListener("popstate", () => {
       window.alert("in");
     });
   }, []);
