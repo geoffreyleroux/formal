@@ -29,6 +29,7 @@ const SearchDialog: React.FC = ({}) => {
   const [selectedAction, setSelectedAction] = React.useState<
     Action | undefined
   >();
+  const inputRef = React.createRef<HTMLInputElement>()
 
   const filteredCategories = React.useMemo(() => {
     if (showCommands) {
@@ -40,12 +41,8 @@ const SearchDialog: React.FC = ({}) => {
   }, [selectedTab, showCommands]);
 
   React.useEffect(() => {
-    // if (!inputValue.startsWith("/") && showCommands) {
     const showCommands = inputValue.startsWith("/");
-    // !showCommands && setSelectedTab(Tabs.All);
-    // !showCommands &&  setSelectedAction(undefined);
     setShowCommands(showCommands);
-    // }
   }, [inputValue]);
 
   useKeyboardShortcut({
@@ -58,6 +55,14 @@ const SearchDialog: React.FC = ({}) => {
           selectedAction
         )
       );
+    },
+  });
+  useKeyboardShortcut({
+    keyValue: "Slash",
+    onKeyDown: () => {
+      setInputvalue("/");
+      inputRef.current?.focus()
+      // setShowCommands(true);
     },
   });
   return (
@@ -74,6 +79,7 @@ const SearchDialog: React.FC = ({}) => {
           <div className="w-full overflow-hidden ">
             <div className="flex flex-row relative m-1 w-full">
               <SearchBar
+                ref={inputRef}
                 inputValue={inputValue}
                 setInputvalue={setInputvalue}
               />
