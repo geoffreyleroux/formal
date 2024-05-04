@@ -14,9 +14,9 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   return (
     <>
-      <h2 className="px-10 pt-10 pb-2 text-2xl text-gray-700"> {title}</h2>
+      <h2 className="sm:px-10 px-5 pt-10 pb-2 text-2xl text-gray-700"> {title}</h2>
       <ScrollArea className="w-full whitespace-nowrap ">
-        <div className="flex w-max space-x-4 px-10">{children}</div>
+        <div className="flex w-max space-x-4 sm:px-10 px-5">{children}</div>
         <ScrollBar className="px-10" orientation={orientation} />
       </ScrollArea>
     </>

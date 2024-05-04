@@ -19,7 +19,7 @@ export interface BoxProps {
 
 const Box: React.FC<BoxProps> = ({ title, lastUpdated, logsCount, chart }) => {
   return (
-    <Card className="sm:w-[500px] w-[250px] h-[200px] flex-col border-b-2 border-r-2">
+    <Card className="sm:w-[500px] w-[300px] h-[200px] flex-col border-b-2 border-r-2">
       <CardContent>
         <div
           className={cn(
@@ -28,16 +28,16 @@ const Box: React.FC<BoxProps> = ({ title, lastUpdated, logsCount, chart }) => {
           )}
         >
           <div className="flex-row">
-            <CardTitle className="pb-2 text-gray-500 text-lg font-medium">
+            <CardTitle className="pb-2 text-gray-500 text-lg font-medium whitespace-normal pr-2">
               {title}
             </CardTitle>
-            <CardDescription className="text-xs text-gray-400">
+            <CardDescription className="text-xs text-gray-400 whitespace-normal pr-2">
               {lastUpdated}
             </CardDescription>
           </div>
           <div className="flex flex-row text-3xs text-gray-300 items-center">
             <Icon iconName="BadgeInfo" size={16}></Icon>
-            <p className="pl-1">{logsCount} News logs since update</p>
+            <p className="pl-1 whitespace-normal pr-2">{logsCount} News logs since update</p>
           </div>
         </div>
 

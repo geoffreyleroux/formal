@@ -21,7 +21,7 @@ const HeaderButton = React.forwardRef<HTMLButtonElement, Props>(
       <Button
         {...props}
         variant={"secondary"}
-        className="bg-gray-100  justify-between px-10 h-[90px] w-full"
+        className="bg-gray-100 justify-between sm:px-10 px-5 h-[90px] w-full"
       >
         <div className="text-gray-500 text-lg font-normal ">
           Search for anything

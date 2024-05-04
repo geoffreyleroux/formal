@@ -62,7 +62,6 @@ const SearchDialog: React.FC = ({}) => {
     onKeyDown: () => {
       setInputvalue("/");
       inputRef.current?.focus()
-      // setShowCommands(true);
     },
   });
   return (
