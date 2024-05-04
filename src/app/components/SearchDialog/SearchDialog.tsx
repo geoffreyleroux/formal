@@ -30,34 +30,32 @@ const SearchDialog: React.FC = ({}) => {
   >();
 
   const filteredCategories = React.useMemo(() => {
-    return selectedTab === "All" || showCommands
+    if (showCommands) {
+      return categories.filter((c) => c.commands.length);
+    }
+    return selectedTab === "All"
       ? categories
       : categories.filter((c) => c.title === selectedTab);
   }, [selectedTab, showCommands]);
 
-  const onCommandKeyDown = (): void => {
-    setShowCommands(true);
-  };
-
   React.useEffect(() => {
-    if (!inputValue.startsWith("/") && showCommands) {
-      setSelectedTab(Tabs.All);
-      setSelectedAction(undefined);
-      setShowCommands(false);
-    }
+    // if (!inputValue.startsWith("/") && showCommands) {
+    const showCommands = inputValue.startsWith("/");
+    // !showCommands && setSelectedTab(Tabs.All);
+    // !showCommands &&  setSelectedAction(undefined);
+    setShowCommands(showCommands);
+    // }
   }, [inputValue]);
 
   useKeyboardShortcut({
     keyValue: "ArrowDown",
     onKeyDown: () => {
       setSelectedAction(
-        selectedAction
-          ? getNextAction(
-              selectedAction,
-              showCommands ? "commands" : "applications",
-              filteredCategories
-            )
-          : filteredCategories[0].applications[0]
+        getNextAction(
+          showCommands ? "commands" : "applications",
+          filteredCategories,
+          selectedAction
+        )
       );
     },
   });
@@ -77,7 +75,6 @@ const SearchDialog: React.FC = ({}) => {
               <SearchBar
                 inputValue={inputValue}
                 setInputvalue={setInputvalue}
-                onCommandKeyDown={onCommandKeyDown}
               />
             </div>
             {!showCommands && (
@@ -115,13 +112,11 @@ const SearchDialog: React.FC = ({}) => {
                 keyValue="ArrowUp"
                 onKeyDown={() => {
                   setSelectedAction(
-                    selectedAction
-                      ? getPreviousAction(
-                          selectedAction,
-                          showCommands ? "commands" : "applications",
-                          filteredCategories
-                        )
-                      : filteredCategories[0].applications[0]
+                    getPreviousAction(
+                      showCommands ? "commands" : "applications",
+                      filteredCategories,
+                      selectedAction
+                    )
                   );
                 }}
               >

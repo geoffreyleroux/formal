@@ -4,15 +4,10 @@ import { Input } from "@/lib/design-system/input";
 import Icon from "../../Icon/Icon";
 export interface SearchBarProps {
   inputValue: string;
-  onCommandKeyDown: () => void;
   setInputvalue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({
-  inputValue,
-  onCommandKeyDown,
-  setInputvalue,
-}) => {
+const SearchBar: React.FC<SearchBarProps> = ({ inputValue, setInputvalue }) => {
   return (
     <>
       <Icon
@@ -34,11 +29,6 @@ const SearchBar: React.FC<SearchBarProps> = ({
         placeholder="Find info, Ask question or Run queries"
       ></Input>
       <Shortcut
-        keyValue="Slash"
-        onKeyDown={() => {
-          setInputvalue("/");
-          onCommandKeyDown();
-        }}
         className="flex absolute sm:right-5 right-2 sm:top-3 top-4 rounded-sm bg-white sm:p-2 sm:h-[20px] p-1 h-[15px]"
         label="'/' for commands"
       ></Shortcut>

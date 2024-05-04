@@ -15,22 +15,23 @@ export const getPrevTab = (current: Tabs): Tabs => {
 };
 
 export const getNextAction = (
-  currentData: Action,
   type: "applications" | "commands",
-  categories: Category[]
+  categories: Category[],
+  current?: Action
 ): Action => {
-  const currentCategory =
-    categories.find((c) =>
-      c[type]?.find((d) => d.title === currentData.title)
-    ) || categories[0];
+  if (!current) return categories[0][type][0];
 
-  const currentDataIndex = currentCategory[type].findIndex(
-    (c) => c.title === currentData.title
+  const currentCategory =
+    categories.find((c) => c[type]?.find((d) => d.title === current.title)) ||
+    categories[0];
+
+  const currentIndex = currentCategory[type].findIndex(
+    (c) => c.title === current.title
   );
   const nextDataIsInCategory =
-    currentDataIndex !== currentCategory[type].length - 1;
+    currentIndex !== currentCategory[type].length - 1;
   if (nextDataIsInCategory) {
-    return currentCategory[type][currentDataIndex + 1];
+    return currentCategory[type][currentIndex + 1];
   }
 
   const currentCategoryIndex = categories.findIndex(
@@ -41,21 +42,22 @@ export const getNextAction = (
 };
 
 export const getPreviousAction = (
-  currentData: Action,
   type: "applications" | "commands",
-  categories: Category[]
+  categories: Category[],
+  current?: Action
 ): Action => {
-  const currentCategory =
-    categories.find((c) =>
-      c[type].find((d) => d.title === currentData.title)
-    ) || categories[0];
+  if (!current) return categories[0][type][0];
 
-  const currentDataIndex = currentCategory[type].findIndex(
-    (c) => c.title === currentData.title
+  const currentCategory =
+    categories.find((c) => c[type].find((d) => d.title === current.title)) ||
+    categories[0];
+
+  const currentIndex = currentCategory[type].findIndex(
+    (c) => c.title === current.title
   );
-  const prevDataIsInCategory = currentDataIndex !== 0;
+  const prevDataIsInCategory = currentIndex !== 0;
   if (prevDataIsInCategory) {
-    return currentCategory[type][currentDataIndex - 1];
+    return currentCategory[type][currentIndex - 1];
   }
 
   const currentCategoryIndex = categories.findIndex(
