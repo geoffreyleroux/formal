@@ -19,7 +19,7 @@ export interface BoxProps {
 
 const Box: React.FC<BoxProps> = ({ title, lastUpdated, logsCount, chart }) => {
   return (
-    <Card className="w-[500px] h-[200px] flex-col border-b-2 border-r-2">
+    <Card className="sm:w-[500px] w-[250px] h-[200px] flex-col border-b-2 border-r-2">
       <CardContent>
         <div
           className={cn(

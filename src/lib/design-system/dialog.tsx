@@ -36,31 +36,21 @@ const DialogContent = React.forwardRef<
     <DialogOverlay />
     <DialogPrimitive.Content
       ref={ref}
-      // `outline-none	sm:rounded-lg origin-top fixed left-[50%] top-[50%] z-50 flex flex-col
-      // max-w-lg translate-x-[-50%] translate-y-[-50%] gap-0 border
-      // bg-gray-100 p-6 shadow-lg duration-1000
-      // data-[state=open]:animate-in
-      // data-[state=open]:slide-in-from-top-[100%]
-      // data-[state=open]:slide-in-from-left-1/2
-      // w-full h-[120px]
-      // top-0
-      // `
       className={cn(
-        `outline-none	sm:rounded-lg origin-top fixed left-[50%] top-[50%] z-50 flex flex-col 
+        `outline-nonesm:rounded-lg origin-top fixed left-[50%] top-[50%] z-50 flex flex-col 
         max-w-lg translate-x-[-50%] translate-y-[-50%] gap-0 border 
-        bg-gray-100 p-6 shadow-lg duration-1000
+        bg-gray-100 p-6 shadow-lg
         data-[state=open]:animate-in 
         data-[state=open]:slide-in-from-top-[100%]
         data-[state=open]:slide-in-from-left-1/2
-        w-full h-[120px]
         data-[state=closed]:duration-5000 
         data-[state=closed]:w-full
         data-[state=closed]:fade-out-0 
         data-[state=closed]:zoom-out-95 
         data-[state=closed]:slide-out-to-left-1/2 
         data-[state=closed]:slide-out-to-top-[100%]
+        data-[state=closed]:animate-out
         `,
-        // data-[state=closed]:animate-out
         className
       )}
       {...props}

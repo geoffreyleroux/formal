@@ -22,9 +22,11 @@ const config = {
       fontSize: {
         "2xs": ".5em",
       },
-      transitionDuration: {
-        '5000': '5000ms',
+      screens: {
+        xs: "300px",
+        ...defaultTheme.screens,
       },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -32,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       <Input
         value={inputValue}
         onChange={(e) => setInputvalue(e.currentTarget.value)}
-        className="p-6 pl-12 text-lg bg-gray-200 text-gray-500"
+        className="h-[50px] sm:pr-6 pr-0 pl-12 text-lg bg-gray-200 text-gray-500"
         placeholder="Find info, Ask question or Run queries"
       ></Input>
       <Shortcut

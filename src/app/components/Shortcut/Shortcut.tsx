@@ -29,7 +29,7 @@ const Shortcut: React.FC<React.PropsWithChildren<ShortcutProps>> = ({
     });
   }
   return (
-    <div className={cn(className, "flex flex-row items-center")}>
+    <div className={cn("hidden sm:flex flex-row items-center", className)}>
       {alt && (
         <Icon iconName="Option" size={12} color="gray" className="mr-2" />
       )}

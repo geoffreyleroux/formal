@@ -54,7 +54,7 @@ const SearchDialog: React.FC = ({}) => {
         ></HeaderButton>
       </DialogTrigger>
 
-      <DialogContent className="p-0 max-w-[825px] w-[80%] max-h-[80%] h-[100%] overflow-hidden">
+      <DialogContent className="p-0 max-w-[825px] sm:w-[80%] sm:max-h-[80%] sm:h-[100%] overflow-hidden w-full h-full">
         <div className="flex flex-row">
           <div className="w-full overflow-hidden ">
             <div className="flex flex-row relative m-1 w-full">
@@ -69,7 +69,7 @@ const SearchDialog: React.FC = ({}) => {
                 <div className="flex flex-row px-3 py-1 mt-1 max-w-full relative overflow-hidden">
                   <QueryExamples />
                 </div>
-                <div className="flex flex-row px-3 py-1 max-w-full relative overflow-hidden">
+                <div className="flex flex-row px-3 py-1 max-w-full relative overflow-hidden sm:overflow-auto">
                   <TabButtons
                     selected={selectedTab}
                     onSelect={(value) => {
@@ -117,7 +117,7 @@ const SearchDialog: React.FC = ({}) => {
                     ></Icon>
                   </Badge>
                 </Shortcut>
-                <Shortcut label="Close">
+                <Shortcut label="Close" className="flex sm:flex">
                   <Badge
                     variant="secondary"
                     className="bg-white hover:bg-inherit rounded-xl w-[30x] px-3 py-1 mr-2"
