@@ -29,7 +29,7 @@ const SearchDialog: React.FC = ({}) => {
   const [selectedAction, setSelectedAction] = React.useState<
     Action | undefined
   >();
-  const inputRef = React.createRef<HTMLInputElement>()
+  const inputRef = React.createRef<HTMLInputElement>();
 
   const filteredCategories = React.useMemo(() => {
     if (showCommands) {
@@ -61,7 +61,7 @@ const SearchDialog: React.FC = ({}) => {
     keyValue: "Slash",
     onKeyDown: () => {
       setInputvalue("/");
-      inputRef.current?.focus()
+      inputRef.current?.focus();
     },
   });
   return (
@@ -88,13 +88,13 @@ const SearchDialog: React.FC = ({}) => {
                 <div className="flex flex-row px-3 py-1 mt-1 max-w-full relative overflow-hidden">
                   <QueryExamples />
                 </div>
-                
+
                 <div className="flex flex-row mx-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto pb-2 sm:pb0">
                   <TabButtons
                     selected={selectedTab}
                     onSelect={(value) => {
                       setSelectedAction(undefined);
-                      setSelectedTab(value);
+                      setSelectedTab(value === selectedTab ? Tabs.All : value);
                     }}
                   ></TabButtons>
                 </div>
