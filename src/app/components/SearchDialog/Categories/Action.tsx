@@ -54,8 +54,8 @@ const Action: React.FC<CategoriesProps> = ({
           color={showCommands ? "purple" : "white"}
         ></Icon>
 
-        <div>
-          <span className="px-2 leading-none h-[32px]">{action.title}</span>
+        <div className="pl-2">
+          <span className="pr-2 leading-none h-[32px]">{action.title}</span>
           {"badges" in action &&
             action.badges.map((badge, index) => (
               <Badge
