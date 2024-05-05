@@ -8,6 +8,7 @@ import { useKeyboardShortcut } from "@/lib/hooks/use-keyboard-shortcut";
 import { getNextTab, getPrevTab } from "../utils";
 import Shortcut from "../../Shortcut/Shortcut";
 import Icon from "../../Icon/Icon";
+import { ScrollBar, ScrollArea } from "@/lib/design-system/scroll-area";
 
 interface TabButtonsProps {
   selected: Tabs;
@@ -35,35 +36,38 @@ const TabButtons: React.FC<TabButtonsProps> = ({ selected, onSelect }) => {
   return (
     <div className="flex flex-row w-full">
       <div className="flex flex-row w-full">
-        {tabButtons.map((tabButton, index) => (
-          <Button
-            aria-keyshortcuts="tab"
-            tabIndex={-1}
-            key={index}
-            onClick={() => onSelect(tabButton.title)}
-            className={cn(
-              "mx-1 h-[35px] p-3 bg-white ring-1 ring-gray-200",
-              selected === tabButton.title &&
-                cn(`bg-${tabButton.color}-500`, "text-white"),
-              `hover:bg-${tabButton.color}-500/100 active:bg-${tabButton.color}-500/50`
-            )}
-            size="secondary"
-            variant="secondary"
-          >
-            {tabButton.icon &&
-              (selected !== "All" ? (
-                <Icon
-                  size={16}
-                  className="mr-2"
-                  iconName={tabButton.icon}
-                ></Icon>
-              ) : (
-                <Icon size={16} className="mr-2" iconName="X"></Icon>
-              ))}
+        <ScrollArea className="max-w-full whitespace-nowrap">
+          {tabButtons.map((tabButton, index) => (
+            <Button
+              aria-keyshortcuts="tab"
+              tabIndex={-1}
+              key={index}
+              onClick={() => onSelect(tabButton.title)}
+              className={cn(
+                "mx-1 h-[35px] p-3 bg-white ring-1 ring-gray-200",
+                selected === tabButton.title &&
+                  cn(`bg-${tabButton.color}-500`, "text-white"),
+                `hover:bg-${tabButton.color}-500/100 active:bg-${tabButton.color}-500/50`
+              )}
+              size="secondary"
+              variant="secondary"
+            >
+              {tabButton.icon &&
+                (selected !== "All" ? (
+                  <Icon
+                    size={16}
+                    className="mr-2"
+                    iconName={tabButton.icon}
+                  ></Icon>
+                ) : (
+                  <Icon size={16} className="mr-2" iconName="X"></Icon>
+                ))}
 
-            <p>{tabButton.title}</p>
-          </Button>
-        ))}
+              <p>{tabButton.title}</p>
+            </Button>
+          ))}
+          <ScrollBar className="px-10" orientation="horizontal" />
+        </ScrollArea>
       </div>
       <Shortcut
         className="bg-white px-2 py-3 rounded-md text-xs h-[20px] self-center"
