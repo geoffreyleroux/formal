@@ -89,7 +89,7 @@ const SearchDialog: React.FC = ({}) => {
                   <QueryExamples />
                 </div>
                 
-                <div className="flex flex-row px-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto pb-2 sm:pb0">
+                <div className="flex flex-row mx-3 py-1 max-w-full relative sm:overflow-hidden overflow-auto pb-2 sm:pb0">
                   <TabButtons
                     selected={selectedTab}
                     onSelect={(value) => {
