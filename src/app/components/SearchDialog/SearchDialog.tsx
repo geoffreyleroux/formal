@@ -70,7 +70,7 @@ const SearchDialog: React.FC = ({}) => {
         <HeaderButton
           onKeyboardShortcut={() => setOpen(true)}
           variant="outline"
-        ></HeaderButton>
+        />
       </DialogTrigger>
 
       <DialogContent className="p-0 max-w-[825px] sm:w-[80%] sm:max-h-[80%] sm:h-[100%] overflow-hidden w-full h-full">

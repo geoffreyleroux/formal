@@ -9,14 +9,17 @@ export interface Props extends ButtonProps {
 }
 
 const HeaderButton = React.forwardRef<HTMLButtonElement, Props>(
-  ({
-    className,
-    variant,
-    size,
-    asChild = false,
-    onKeyboardShortcut,
-    ...props
-  }) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      onKeyboardShortcut,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <Button
         {...props}
